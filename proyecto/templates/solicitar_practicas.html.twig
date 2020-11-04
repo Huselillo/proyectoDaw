@@ -1,0 +1,64 @@
+{% extends "layout.html.twig" %}
+{% block body %}
+	<div class="row">
+		<div class="col-lg-2 py-4 justify-content-left mr-5">
+				<ul class="nav flex-column pink darken-1 py-4">
+					<li class="nav-item">
+						<a class="nav-link active text-white" href="{{ asset('perfil') }}"><i class="far fa-address-card"></i> Datos Personales</a>
+					</li>
+					{% if not is_granted('ROLE_ADMIN' ) %}
+					<li class="nav-item">
+						<a class="nav-link text-white" href="{{ asset('practicas') }}"><i class="fas fa-car"></i> Prácticas</a>
+					</li>
+					{% endif %}
+					{% if not is_granted('ROLE_PROFESOR' )  and not is_granted('ROLE_ADMIN') %}
+					<li class="nav-item">
+						<a class="nav-link text-white" href="{{ asset('estadisticas') }}"><i class="far fa-chart-bar"></i> Estadísticas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="{{ asset('solicitarPracticas') }}"><i class="fas fa-hand-holding"></i> Solicitar Práctica</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+		<div class="col-lg-4 my-5 mx-auto">
+			<form class="text-center border border-light p-5" action="#!">
+
+				<p class="h4 mb-4">Solicitar Práctica</p>
+
+				<input type="date" id="fecha" class="form-control mb-4" placeholder="Fecha DD/MM/AA">
+
+				<input type="time" id="hora" class="form-control mb-4" placeholder="Hora HH:MM">
+
+
+				<!-- Subject -->
+				<label>Profesor</label>
+				<select id="selector" class="browser-default custom-select mb-4">
+					<option value="" disabled>Elige un profesor</option>
+					{% set rol_profesor = 'ROLE_PROFESOR' %}
+					{% for profesor in arrayProfesores %}
+						{% if profesor.tipo_usuario == rol_profesor %}
+							<option value="{{ profesor.id }}">{{ profesor.nombre }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+
+				<!-- Send button -->
+				<button id="btnSolicitar" class="btn btn-info btn-block">Solicitar</button>
+
+			</form>
+		</div>
+	</div>
+	<footer class="page-footer font-small">
+		<div class="row justify-content-center black">
+			<div class="col-lg-4 text-center mt-3"style="height:300px;">
+				<span class="d-block text-white mt-2 mb-5">
+					<span class="navbar-brand ml-5"><img src="{{ asset('img/logo.png') }}" width="50px" height="50px"></span>
+					<strong>Aprende y Conduce</strong></span>
+				<span class="ml-2 d-block text-white my-2"><strong>Teléfono: 966.87.07.00</strong></span>
+				<span class="ml-2 d-block text-white mt-2 mb-5"><strong>Email: aprendeyconduce@contacto.es</strong></span>
+				<span class="ml-2 d-block text-white mt-5">&copy;Aprende y conduce todos los derechos reservados</span>
+			</div>
+		</div>
+	</footer>
+{% endblock %}

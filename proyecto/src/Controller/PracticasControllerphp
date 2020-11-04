@@ -1,0 +1,57 @@
+<?php
+namespace App\Controller;
+
+use App\Entity\Practicas;
+use App\Entity\Usuarios;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+class PracticasController extends AbstractController
+{
+    /**
+     * @Route("/solicitarPracticas", name="solicitarPracticas")
+     */
+    public function solicitarPracticas(){
+        $repositorio = $this->getDoctrine()->getRepository(Usuarios::class);
+        $arrayProfesores= $repositorio->findAll();
+        return $this->render('solicitar_practicas.html.twig', array('arrayProfesores' =>$arrayProfesores));
+    }
+    /**
+     * @Route("/solicitudPractica", name="solicitudPractica")
+     */
+    public function datosPractica(Request $request){
+        
+        if($request->isXmlHttpRequest())
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $practica = new Practicas();
+            $usuario = $this->getDoctrine()->getRepository(Usuarios::class);
+            $usuario = $this->getUser();
+            $usuarioId = $usuario->getId();
+            $datos = $request->request->get("cita");
+
+            $practica->setUsuario($usuarioId);
+            $practica->setProfesor($datos[0]['profesor']);
+            $practica->setFecha($datos[0]['fecha']);
+            $practica->setHora($datos[0]['hora']);
+
+            $entityManager->persist($practica);
+            $entityManager->flush();
+
+            
+            return new JsonResponse();
+        }
+    }
+
+}
+?>

@@ -1,0 +1,48 @@
+{% extends "layout.html.twig" %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-6 my-auto mx-auto">
+        <table class="table my-5">
+				<thead>
+					<tr class="text-center pink darken-1">
+						<th scope="col">ID</th>
+						<th scope="col">Usuarios</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Correo</th>
+						<th scope="col">Rol</th>
+                        <th scope="col">Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for usuario in usuarios %}
+                    <tr class="text-center grey lighten-2">
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.usuario }}</td>
+                        <td>{{ usuario.nombre }}</td>
+                        <td><a href="mailto:{{ usuario.correo }}?subject=Prueba&body=mensaje de prueba">{{ usuario.correo }}</a></td>
+                        <td>{{ usuario.tipo_usuario }}</td>
+                        <td><a href="{{ path('eliminarUsuario',{'id':usuario.id}) }}"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                {% endfor %}
+				</tbody>
+			</table>
+            <div class="row justify-content-center">
+                <button id="btnAlumnos" class="btn btn-primary">Filtrar por alumnos</button>
+                <button id="btnProfesor" class="btn btn-primary">Filtrar por profesores</button>
+            </div>
+    </div>
+</div>
+<footer class="page-footer font-small">
+    <div class="row justify-content-center black">
+        <div class="col-lg-4 text-center mt-3"style="height:300px;">
+            <span class="d-block text-white mt-2 mb-5">
+                <span class="navbar-brand ml-5"><img src="{{ asset('img/logo.png') }}" width="50px" height="50px"></span>
+                <strong>Aprende y Conduce</strong></span>
+            <span class="ml-2 d-block text-white my-2"><strong>Teléfono: 966.87.07.00</strong></span>
+            <span class="ml-2 d-block text-white mt-2 mb-5"><strong>Email: aprendeyconduce@contacto.es</strong></span>
+            <span class="ml-2 d-block text-white mt-5">&copy;Aprende y conduce todos los derechos reservados</span>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+

@@ -1,0 +1,240 @@
+{% extends "layout.html.twig" %}
+{% block body %}
+	{% if app.user %}
+	Logueado como: {{ app.user.username }}
+	{% endif %}
+	<div class="row justify-content-center my-4">
+		<div class="jumbotron card card-image d-none d-md-block" style="background-image: url({{ asset('img/autoescuela.jpg') }});">
+			<div class="text-white text-center py-5 px-4">
+				<div>
+					<h2 class="card-title h1-responsive pt-3 mb-5 font-bold text-dark">
+						<strong>¡Bienvenido a Aprende y Conduce!</strong>
+					</h2>
+					<p class="mx-5 mb-5 text-dark"><strong>Somos una página web orientada a la realización de tests online de autoescuela.
+					</strong></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<h1 class="my-3">Profesores</h1>
+	</div>
+	<div class="row justify-content-around">
+		<div class="col-lg-4 col-md-4 col-xs-6">
+			<div
+				class="card card-cascade my-4">
+
+				<!-- Card image -->
+				<div class="view view-cascade overlay">
+					<img class="card-img-top wow fadeUpLeft" src="{{ asset('img/profesor1.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!-- Card content -->
+				<div
+					class="card-body card-body-cascade text-center">
+
+					<!-- Title -->
+					<h4 class="card-title">
+						<strong>Samuel García</strong>
+					</h4>
+					<!-- Subtitle -->
+					<h6 class="font-weight-bold indigo-text py-2">Profesor de prácticas</h6>
+					<!-- Text -->
+					<p class="card-text">Primer responsable experimentados en la evaluación de prácticas. Más de 5 años de experiencia.
+																																																																															    
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-6">
+			<div
+				class="card card-cascade my-4">
+
+				<!-- Card image -->
+				<div class="view view-cascade overlay">
+					<img class="card-img-top wow fadeUpLeft" src="{{ asset('img/profesor2.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!-- Card content -->
+				<div
+					class="card-body card-body-cascade text-center">
+
+					<!-- Title -->
+					<h4 class="card-title">
+						<strong>Miguel Ángel Guillem</strong>
+					</h4>
+					<!-- Subtitle -->
+					<h6 class="font-weight-bold indigo-text py-2">Profesor de prácticas</h6>
+					<!-- Text -->
+					<p class="card-text">Nuestro segundo responsable  en la evaluación de prácticas. Más de 5 años de experiencia.
+																																																																															      
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="row justify-content-around">
+		<div class="col-lg-4 col-md-4 col-xs-6">
+			<div
+				class="card card-cascade my-4">
+
+				<!-- Card image -->
+				<div class="view view-cascade overlay">
+					<img class="card-img-top wow fadeUpLeft" src="{{ asset('img/profesor3.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!-- Card content -->
+				<div
+					class="card-body card-body-cascade text-center">
+
+					<!-- Title -->
+					<h4 class="card-title">
+						<strong>Susana Lago</strong>
+					</h4>
+					<!-- Subtitle -->
+					<h6 class="font-weight-bold indigo-text py-2">Profesora Teórico</h6>
+					<!-- Text -->
+					<p class="card-text">Profesora encargada de enseñarte la parte teórica, más de 10 años de experiencia en el sector.
+																																																																															    
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-xs-6">
+			<div
+				class="card card-cascade my-4">
+
+				<!-- Card image -->
+				<div class="view view-cascade overlay">
+					<img class="card-img-top" src="{{ asset('img/profesor4.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!-- Card content -->
+				<div
+					class="card-body card-body-cascade text-center">
+
+					<!-- Title -->
+					<h4 class="card-title">
+						<strong>Francisco Pérez</strong>
+					</h4>
+					<!-- Subtitle -->
+					<h6 class="font-weight-bold indigo-text py-2">Dueño de Aprende y Conduce</h6>
+					<!-- Text -->
+					<p class="card-text">Empresario responsable de la creación de esta empresa.
+																																																																															    
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="row justify-content-center my-4">
+		<h1>Temarios</h1>
+	</div>
+	<div class="row justify-content-around">
+		<div class="col-lg-3 col-md-4 col-xs-5 my-4">
+			<div
+				class="card mb-4">
+
+				<!--Card image-->
+				<div class="view overlay">
+					<img class="card-img-top" src="{{ asset('img/permisoA.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!--Card content-->
+				<div
+					class="card-body">
+
+					<!--Title-->
+					<h4 class="card-title">Permiso A</h4>
+					<!--Text-->
+					<p class="card-text">Aquí encontrarás temarios referentes a la obtención de los permisos A1, A2.
+																																								        </p>
+					<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+					<a class="btn btn-info" href="{{ asset('temas/A') }}">Empezar</a>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-xs-5 my-4">
+			<div
+				class="card mb-4">
+
+				<!--Card image-->
+				<div class="view overlay">
+					<img class="card-img-top" src="{{ asset('img/permisoB.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!--Card content-->
+				<div
+					class="card-body">
+
+					<!--Title-->
+					<h4 class="card-title">Permiso B</h4>
+					<!--Text-->
+					<p class="card-text">Aquí encontrarás temarios referentes a la obtención de los permisos B y B + E.
+																																								       </p>
+					<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+					<a class="btn btn-info" href="{{ asset('temas/B') }}">Empezar</a>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 my-4">
+			<div
+				class="card mb-4">
+
+				<!--Card image-->
+				<div class="view overlay">
+					<img class="card-img-top" src="{{ asset('img/permisoC.jpg') }}" alt="Card image cap">
+						<div class="mask rgba-white-slight"></div>
+				</div>
+
+				<!--Card content-->
+				<div
+					class="card-body">
+
+					<!--Title-->
+					<h4 class="card-title">Permiso C</h4>
+					<!--Text-->
+					<p class="card-text">Aquí encontrarás temarios referentes a la obtención de los permisos C y C + E.
+																																								        </p>
+					<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+					<a class="btn btn-info" href="{{ asset('temas/C') }}">Empezar</a>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<footer class="page-footer font-small">
+		<div class="row justify-content-center black">
+			<div class="col-lg-4 text-center mt-3"style="height:300px;">
+				<span class="d-block text-white mt-2 mb-5">
+					<span class="navbar-brand ml-5"><img src="{{ asset('img/logo.png') }}" width="50px" height="50px"></span>
+					<strong>Aprende y Conduce</strong></span>
+				<span class="ml-2 d-block text-white my-2"><strong>Síguenos en nuestras redes sociales <i class="fab fa-instagram"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-square"></i></strong></span>
+				<span class="ml-2 d-block text-white my-2"><strong>Teléfono: 966.87.07.00</strong></span>
+				<span class="ml-2 d-block text-white mt-2 mb-5"><strong>Email: aprendeyconduce@contacto.es</strong></span>
+				<span class="ml-2 d-block text-white mt-5">&copy;Aprende y conduce todos los derechos reservados</span>
+			</div>
+		</div>
+	</footer>
+{% endblock %}

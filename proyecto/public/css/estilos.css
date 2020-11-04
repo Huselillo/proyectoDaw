@@ -1,0 +1,23 @@
+@font-face{
+    font-family: robot;
+    src:url(RobotoSlab-VariableFont_wght.ttf)
+}
+html,body{
+    height:100%;
+    font-family: robot;
+    font-size: 20px;
+    position:relative;
+}
+
+.jumbotron{
+    background-size: cover;
+    width: 90%;
+}
+.nav-item > a:hover{
+    background-color:#ec407a;
+}
+#divCovid{
+    height:40px;
+    width: 98%;
+    background-color:black;
+}

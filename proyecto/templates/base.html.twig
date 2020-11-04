@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+            <!-- Google Fonts -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+            <!-- Bootstrap core CSS -->
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+            <!-- Material Design Bootstrap -->
+            <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+            <link href="{{ asset('css/estilos.css') }}" type="text/css" rel="stylesheet">
+            <link href="{{ asset('css/nuevo_test.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {% block cuerpo %}{% endblock %}
+        {% block javascripts %}
+        <!-- JQuery -->
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
+        <script src="{{ asset('js/inicio.js') }}"></script>
+        <script src="{{ asset('js/listaTest.js') }}"></script>
+        <script src="{{ asset('js/test.js') }}"></script>
+        <script src="{{ asset('js/nueva_pregunta.js') }}"></script>
+        <script src="{{ asset('js/inicio.js') }}"></script>
+        <script src="{{ asset('js/editar_pregunta.js') }}"></script>
+        <script src="{{ asset('js/nuevo_test.js') }}"></script>
+        <script src="{{ asset('js/cambiarPass.js') }}"></script>
+        <script src="{{ asset('js/estadisticas.js') }}"></script>
+        <script src="{{ asset('js/perfil.js') }}"></script>
+        <script src="{{ asset('js/solicitar_practica.js') }}"></script>
+        <script src="{{ asset('js/practicas.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

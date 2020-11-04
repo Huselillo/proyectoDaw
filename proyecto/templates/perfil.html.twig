@@ -1,0 +1,58 @@
+{% extends "layout.html.twig" %}
+{% block body %}
+{% if app.user %}
+	Logueado como: {{ app.user.username }}
+{% endif %}
+        <div class="row">
+			<div class="col-lg-2 py-4 justify-content-left">
+				<ul class="nav flex-column pink darken-1 py-4">
+					<li class="nav-item">
+						<a class="nav-link active text-white" href="{{ asset('perfil') }}"><i class="far fa-address-card"></i> Datos Personales</a>
+					</li>
+					{% if not is_granted('ROLE_ADMIN' ) %}
+					<li class="nav-item">
+						<a class="nav-link text-white" href="{{ asset('practicas') }}"><i class="fas fa-car"></i> Prácticas</a>
+					</li>
+					{% endif %}
+					{% if not is_granted('ROLE_PROFESOR' )  and not is_granted('ROLE_ADMIN') %}
+					<li class="nav-item">
+						<a class="nav-link text-white" href="{{ asset('estadisticas') }}"><i class="far fa-chart-bar"></i> Estadísticas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="{{ asset('solicitarPracticas') }}"><i class="fas fa-hand-holding"></i> Solicitar Práctica</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+			<div class="col-lg-6 border pink lighten-4 my-5 pb-5 rounded mx-auto">
+				<h1 class="text-center m-5"><strong>Datos Personales</strong><button id="btnEditar" class="btn btn-info mx-4">Editar<button id="btnGuardar" class="btn btn-success mx-4 d-none">Guardar</h1></button></button>
+					<strong><p>Nombre: &nbsp;</strong> <input id="nombre"type="text" value="{{usuario.nombre}}" disabled="disabled"></p>
+					<strong><p>Apellidos:</strong> <input id="apellido"type="text" value="{{usuario.apellidos}}" disabled="disabled"></p>
+					<strong><p>Correo: &nbsp;&nbsp;&nbsp;&nbsp;</strong> <input id="correo"type="text" value="{{usuario.correo}}" disabled="disabled">
+					<strong><p>Usuario: &nbsp;&nbsp;</strong> <input id="usuario"type="text" value="{{usuario.usuario}}" disabled="disabled">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2">
+			</div>
+			<div class="col-lg-6 border pink lighten-3 mb-5 rounded pb-2 mx-auto">
+					<h1 class="my-3 text-center">Cambiar Contraseña</h1>
+					<strong><p>Contraseña: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <input id="pass1"type="password"></p>
+					<strong><p>Confirmar Contraseña:</strong> <input id="pass2"type="password"></p>
+
+					<button id="btnCambiar" class="btn btn-info">Cambiar</button>
+			</div>
+		</div>
+	<footer class="page-footer font-small">
+		<div class="row justify-content-center black">
+			<div class="col-lg-4 text-center mt-3"style="height:300px;">
+				<span class="d-block text-white mt-2 mb-5">
+					<span class="navbar-brand ml-5"><img src="{{ asset('img/logo.png') }}" width="50px" height="50px"></span>
+					<strong>Aprende y Conduce</strong></span>
+				<span class="ml-2 d-block text-white my-2"><strong>Teléfono: 966.87.07.00</strong></span>
+				<span class="ml-2 d-block text-white mt-2 mb-5"><strong>Email: aprendeyconduce@contacto.es</strong></span>
+				<span class="ml-2 d-block text-white mt-5">&copy;Aprende y conduce todos los derechos reservados</span>
+			</div>
+		</div>
+	</footer>
+{% endblock %}

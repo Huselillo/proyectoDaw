@@ -1,0 +1,87 @@
+{% extends "layout.html.twig" %}
+{% block body %}
+{% set miContador = 1 %}
+{% set miId = 0 %}
+{% for pregunta in arrayPreguntas %}
+	<div class="row justify-content-around my-4 border">
+			<div class="col-lg-3">
+		        <p class="pregunta mt-5"><span class="num_pregunta">{{ miContador }}- </span>{{pregunta.pregunta}}</p>
+	        </div>
+            <div id="prueba"class="col-lg-3">
+                <span class="imagen">
+				{% if pregunta.foto is not null %}
+				<img src="{{pregunta.foto}}"/>
+				{% endif %}
+				</span>
+            </div>
+            <div id ="miId{{miId}}"class="col-lg-3">
+                <!-- Group of default radios - option 1 -->
+                <div class="my-4">
+                    <input type="radio"  value="1" name="{{pregunta.id}}"><span class="mx-3">{{pregunta.r1}}</span>
+                </div>
+                <!-- Group of default radios - option 2 -->
+                <div class="my-4">
+                    <input type="radio" value="2" name="{{pregunta.id}}"><span class="mx-3">{{pregunta.r2}}</span>
+                </div>
+                <!-- Group of default radios - option 3 -->
+                <div class="my-4">
+                    <input type="radio"value="3" name="{{pregunta.id}}"><span class="mx-3">{{pregunta.r3}}</span>
+                </div>
+            </div>
+	</div>
+	{% set miId = miId + 1 %}
+	{% set miContador = miContador + 1 %}
+{% endfor %}
+    <div class="row justify-content-center">
+        <button  id="btnCancelar" class="btn btn-danger">Cancelar</button>
+        <div id="corregir"><button  class="btn btn-primary" data-toggle="modal" data-target="#modal1">Corregir</button></div>
+		<button id="btnEstadisticas" class="btn btn-info d-none" data-toggle="modal" data-target="#modal2">Ver Estadísticas</button>
+    </div>
+	<div class="modal fade" id="modal1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label"Close">&times;</button>
+					<h5 class="modal-title"></h5>
+				</div>
+				<div class="modal-body">
+					¿Estás seguro de tus respuestas?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					<button type="button" id="btnCorregir" class="btn btn-success" data-dismiss="modal">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal2">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Estas son tus estadísticas </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label"Close">&times;</button>
+				</div>
+				<div id="bodyEstadisticas" class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="btnSalir"class="btn btn-primary" data-dismiss="modal">Salir</button>
+					<button type="button"  id="btnVolver"class="btn btn-light-green"data-dismiss="modal">Hacer otro test</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		<footer class="page-footer font-small">
+		<div class="row justify-content-center black">
+			<div class="col-lg-4 text-center mt-3"style="height:300px;">
+				<span class="d-block text-white mt-2 mb-5">
+					<span class="navbar-brand ml-5"><img src="{{ asset('img/logo.png') }}" width="50px" height="50px"></span>
+					<strong>Aprende y Conduce</strong></span>
+				<span class="ml-2 d-block text-white my-2"><strong>Teléfono: 966.87.07.00</strong></span>
+				<span class="ml-2 d-block text-white mt-2 mb-5"><strong>Email: aprendeyconduce@contacto.es</strong></span>
+				<span class="ml-2 d-block text-white mt-5">&copy;Aprende y conduce todos los derechos reservados</span>
+			</div>
+		</div>
+	</footer>
+	{% endblock %}
+
